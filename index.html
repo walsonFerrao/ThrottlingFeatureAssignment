@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  .div{
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+  }
+  .div:nth-child(2)
+  {
+      font-size: 30px;
+  }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <input type="text">
+
+    </div>
+    <div class="div">
+      
+    </div>
+</body>
+</html>
+<script>
+
+document.getElementsByTagName("input")[0].addEventListener("input",throttle(search,3000))
+
+
+function search()
+{
+document.getElementsByClassName("div")[1].innerHTML=document.getElementsByTagName("input")[0].value
+
+}
+
+function throttle(func,span)
+{
+let mytime=0
+
+
+return function()
+{
+let time=new Date
+
+    if(time-mytime>span)
+    {
+        func()
+        mytime=new Date
+    }
+
+
+}
+
+
+
+
+}
+
+
+</script>
